@@ -9,8 +9,23 @@ for (var i = 0; i < numberOfDrums; i++) {
 }
 
 document.addEventListener("keydown", function(event) {
+
   playSoundDependentOnInput(event.key);
-  buttonAnimation(event.key);
+
+  // Doing this as otherwise "index.js:70 Uncaught TypeError: Cannot read property 'classList' of null error was been thrown for keys not in this list
+  switch (event.key) {
+    case "w":
+    case "a":
+    case "s":
+    case "d":
+    case "j":
+    case "k":
+    case "l":
+      buttonAnimation(event.key); // for all the cases above this method will be called. Tried case "w", "a", "s"... but did not work. https://stackoverflow.com/questions/13207927/switch-statement-multiple-cases-in-javascript
+      break;
+    default: // Do nothing
+  }
+
 })
 
 function playSoundDependentOnInput(theCharacter) {
@@ -54,11 +69,8 @@ function buttonAnimation(theKey) {
   var theButton = document.querySelector("." + theKey);
   theButton.classList.add("pressed");
 
-  setTimeout(function() {theButton.classList.remove("pressed")}, 100)
+  setTimeout(function() {
+    theButton.classList.remove("pressed")
+  }, 100)
 
 }
-
-// function playSound() {
-//   var myAudio = new Audio('sounds/tom-1.mp3');
-//   myAudio.play();
-// }
