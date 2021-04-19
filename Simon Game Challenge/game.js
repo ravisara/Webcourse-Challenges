@@ -1,12 +1,10 @@
-
-
 var gamePattern = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
 
-$(".btn").click(function(myEvent) {
-  //console.log("Here are event details: " + myEvent.target.id);
-  playSound(myEvent.target.id);
-  })
+$(".btn").click(function() {
+  var idOfTheButtonClickedOn = $(this).attr("id")
+  playSound(idOfTheButtonClickedOn);
+})
 
 function nextSequence() {
 
