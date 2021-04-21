@@ -4,8 +4,13 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 animatePress("green");
 
 $(".btn").click(function() {
+
   var idOfTheButtonClickedOn = $(this).attr("id")
+
   playSound(idOfTheButtonClickedOn);
+
+  animatePress(idOfTheButtonClickedOn);
+
 })
 
 function nextSequence() {
@@ -30,14 +35,11 @@ function playSound(name) {
 }
 
 function animatePress(currentColour) {
-  $(".btn").click(function() {
-      var theButton = $(this);
-      $(this).addClass("pressed");
-      setTimeout(function() {
-        theButton.removeClass("pressed")
-      }, 100);
-    }
-  )
 
+  $("#" + currentColour).addClass("pressed");
+  setTimeout(function() {
+    $("#" + currentColour).removeClass("pressed");
+  }, 100
+);
 
 }
