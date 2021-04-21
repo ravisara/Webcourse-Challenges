@@ -1,6 +1,8 @@
 var gamePattern = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
 
+animatePress("green");
+
 $(".btn").click(function() {
   var idOfTheButtonClickedOn = $(this).attr("id")
   playSound(idOfTheButtonClickedOn);
@@ -24,5 +26,18 @@ function playSound(name) {
 
   var soundToPlay = new Audio('sounds/' + name + '.mp3');
   soundToPlay.play();
+
+}
+
+function animatePress(currentColour) {
+  $(".btn").click(function() {
+      var theButton = $(this);
+      $(this).addClass("pressed");
+      setTimeout(function() {
+        theButton.removeClass("pressed")
+      }, 100);
+    }
+  )
+
 
 }
