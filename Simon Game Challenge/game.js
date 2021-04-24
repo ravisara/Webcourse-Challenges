@@ -1,9 +1,9 @@
 var gamePattern = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
-var level = 0;
+var level = -1;
 
 $(document).keypress(function() {
-  if (level === 0) {
+  if (level === -1) {
     nextSequence();
   }
 });
@@ -20,6 +20,7 @@ $(".btn").click(function() {
 
 function nextSequence() {
 
+  level++;
   $("#level-title").text("Level " + level);
 
   var randomNumber = Math.floor(Math.random() * 4);
@@ -31,8 +32,6 @@ function nextSequence() {
   $("#" + randomChosenColour).fadeOut(100).fadeIn(100) //.fadeOut(100).fadeIn(100);
 
   playSound(randomChosenColour);
-
-  level++;
 
 }
 
