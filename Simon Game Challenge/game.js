@@ -75,8 +75,7 @@ function checkAnswer(currentLevel) {
 
 function doNeedfulWhenAnswerIsWrong() {
 
-  var soundToPlayForWrongAnswer = new Audio("sounds/wrong.mp3");
-  soundToPlayForWrongAnswer.play();
+  playSound("wrong");
 
   $("body").addClass("game-over");
   setTimeout(function() {$("body").removeClass("game-over")}, 200);
