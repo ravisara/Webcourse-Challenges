@@ -82,4 +82,12 @@ function doNeedfulWhenAnswerIsWrong() {
 
   $("#level-title").text("Game Over, Press Any Key to Restart");
 
+  startOver();
+
+}
+
+function startOver() {
+  level = 0;
+  gamePattern = [];
+  gameStarted = false;
 }
