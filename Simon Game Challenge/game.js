@@ -6,9 +6,12 @@ var gameStarted = false
 
 var level = 0;
 
+displayGamePlayInstructions();
+
 $(document).keypress(function() {
 
   if (!gameStarted) {
+    clearGamePlayInstructions();
     nextSequence();
     gameStarted = true
   }
@@ -80,14 +83,26 @@ function doNeedfulWhenAnswerIsWrong() {
   $("body").addClass("game-over");
   setTimeout(function() {$("body").removeClass("game-over")}, 200);
 
-  $("#level-title").text("Game Over, Press Any Key to Restart");
+  $("#additional-info").text("Game over. Waiting for 15 seconds for you to capture a screenshot of your level to show others.");
 
-  startOver();
+  setTimeout(startOver, 5000);
 
 }
 
 function startOver() {
+
+  $("#level-title").text("Game Over, Press Any Key to Restart");
+  //displayGamePlayInstructions();
   level = 0;
   gamePattern = [];
   gameStarted = false;
+  clearGamePlayInstructions();
+}
+
+function clearGamePlayInstructions() {
+    $("#additional-info").text("");
+}
+
+function displayGamePlayInstructions() {
+  $("#additional-info").text("When a button flashes click on it. If you click on the same button that flashed, one of the four buttons will flash once again. Now click on the 1st button that flashed followed by the 2nd button that flashed from memory. Then one of the buttons will flash once again. Click on three buttons in the aforementioned way. It will go on like this challenging you to remember an ever increasing sequence.");
 }
