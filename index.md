@@ -9,7 +9,8 @@
 </head>
 
 <body>
-  <h1>Site 1</h1>
+  <h1>Dicee Challenge</h1>
+  <a href="/Dicee%20Challenge/dicee.html">Click to go to Dicee Challenge</a>  
   <h1>Site 2</h1>
   <h1>Site 3</h1>
 </body>
